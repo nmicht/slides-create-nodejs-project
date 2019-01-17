@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Create a NodeJS project: DRY</title>
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/simple.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Create a NodeJS project</h1>
+					<h2>DRY</h2>
+					<p>
+						<small>By <a href="https://michelletorres.mx/acerca">Michelle Torres</a> / <a href="http://twitter.com/nmicht">@nmicht</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<img src="https://media.giphy.com/media/xT5LMylkz3i6fOn3Ne/giphy.gif" alt="">
+						<p>Let me tell you an story</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/11xBk5MoWjrYoE/giphy.gif" alt="">
+						<p>I was learning Python and decided to build some beatiful slides</p>
+					</section>
+
+					<section>
+						<iframe src="https://nmicht.github.io/python-101/index.html" width="500" height="500"></iframe>
+						<p>Mardown version on <a href="https://github.com/nmicht/python-101">Github</a>, and slides version on <a href="https://nmicht.github.io/python-101/index.html">Github Pages</a> with Reveal.js</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/ql4LidslabKpi/giphy.gif" alt="">
+						<p>Why the f.. I was repeating myself again and again?</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/3o7WIMXk4MgSgWF1xC/giphy.gif" alt="">
+						<p>I need a generator for my beautiful slides</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="" width="400">
+						<p>I was super excited creating my project to work, when...</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/xTiTnjZAjQipGn9JFS/giphy.gif" alt="">
+						<p>Copy files, copy configuration, install the same damn packages...</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/3o7btM0HJFhsxOOkYU/giphy.gif" alt="">
+						<p>I was repeating myself again!!</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="https://media.giphy.com/media/3o85xyYOQdcmQSlKU0/giphy.gif" alt="">
+						<p>My first approach: Override <b>npm init</b> command</p>
+					</section>
+
+					<section>
+						<script src="https://gist.github.com/nmicht/fe8df38d3e0323de7cc3bcd21d4928c6.js"></script>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/xTiIzyh3NLzPn9e4ik/giphy.gif" alt="" height="200">
+						<ul>
+							<li>You have to place the script on your local</li>
+							<li>The prompt is not sync ...</li>
+							<li>You lost all the npm init stuff</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="https://media.giphy.com/media/NPF69q5uoAyzJuCkZF/giphy.gif" alt="">
+					</section>
+
+					<section>
+						<p>Second approach: An <b>npm initializer</b></p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/l41Yv1PazKT0HTtAs/giphy.gif" alt="" height="200">
+						<ol>
+							<li>Create the folder for the new project</li>
+							<li>Use a questionnarie to guide through the options</li>
+							<li>Create a git repo</li>
+							<li>Copy the structured files</li>
+							<li>Create a github repository</li>
+							<li>Install eslint and testing dependencies</li>
+							<li>Update package.json and Readme</li>
+							<li>Commit and push the initial commit</li>
+						</ol>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/9HQRIttS5C4Za/giphy.gif" alt="">
+						<p>Let's do a demo!</p>
+					</section>
+
+					<section>
+						<h1>create-nodejs-project</h1>
+						<ul>
+							<li><a href="https://www.npmjs.com/package/create-nodejs-project">npm package</a></li>
+							<li><a href="https://github.com/nmicht/create-nodejs-project">Github</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/ulC7OwOVirdWo/giphy.gif" alt="" height="200">
+						<p>The exec, spawn and handling the stdio</p>
+					</section>
+
+					<section>
+						<img src="https://media.giphy.com/media/YLHwkqayc1j7a/giphy.gif" height="300">
+						<ol>
+							<li>params</li>
+							<li>unit Test</li>
+							<li>default values (questionnarie -y)</li>
+							<li>colors</li>
+							<li>error handling</li>
+							<li>licenses</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<img src="https://media.giphy.com/media/JGnZEO1DfL24E/giphy.gif" alt="">
+					<p>Send your feedback! Open issues! Show your love!</p>
+				</section>
+
+				<section>
+					<img src="https://media.giphy.com/media/xUA7aN1MTCZx97V1Ic/giphy.gif" alt="">
+					<p>
+						<small>By <a href="https://michelletorres.mx/acerca">Michelle Torres</a> / <a href="http://twitter.com/nmicht">@nmicht</a></small>
+					</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'reveal.js/plugin/markdown/marked.js' },
+					{ src: 'reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
